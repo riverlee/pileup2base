@@ -1,4 +1,4 @@
 chr	loc	ref	A	T	C	G	a	t	c	g	Insertion	Deletion
 1	888659	T	0	0	6	0	0	0	8	0	NA	NA
-1	888659	T	13	0	0	0	14	0	0	0	NA	NA
-1	888659	T	0	0	2	7	0	0	0	13	NA	NA
+1	1421531	C	13	0	0	0	14	0	0	0	NA	NA
+1	2938697	T	0	0	2	7	0	0	0	13	NA	NA

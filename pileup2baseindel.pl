@@ -75,7 +75,7 @@ foreach my $i (1..$n){
 	my $str = parsePileup($bases,$bq,$BQcut,$offset);
 	
 	if($str ne "*"){
-		print $fh $str;
+		print $fh join "\t",($chr,$loc,$ref,$str);
 	}
 	$files{$i}=$fh;
 }
@@ -90,7 +90,7 @@ while(<FILE>){
 		my ($dp,$bases,$bq) = @dp_bases_bq[@region];
 		my $str = parsePileup($bases,$bq,$BQcut,$offset);
 		if($str ne "*"){
-			print $fh $str;
+			print $fh join "\t",($chr,$loc,$ref,$str);
 		}
 	}
 }
@@ -204,7 +204,8 @@ sub parsePileup{
 		}#end the condition  $score>=$BQcut
 	}#end the loop
 	
-	my $str="$chr\t$loc"."\t".$ref."\t".$forward_A."\t".$forward_T."\t".$forward_C."\t".$forward_G."\t".$reverse_A."\t".$reverse_T."\t".$reverse_C."\t".$reverse_G."\t";
+    #my $str="$chr\t$loc"."\t".$ref."\t".$forward_A."\t".$forward_T."\t".$forward_C."\t".$forward_G."\t".$reverse_A."\t".$reverse_T."\t".$reverse_C."\t".$reverse_G."\t";
+	my $str=$forward_A."\t".$forward_T."\t".$forward_C."\t".$forward_G."\t".$reverse_A."\t".$reverse_T."\t".$reverse_C."\t".$reverse_G."\t";
 	my $insertion="NA";
 	my $deletion="NA";
 	if(scalar(keys %insertion)){
