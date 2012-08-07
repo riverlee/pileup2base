@@ -33,19 +33,19 @@ After apply ***perl pile2baseindel.pl -i test.mpileup***, Here is the result.
 
 **sample1.txt**
 ```
-chr	loc	ref	A	T	C	G	a	t	c	g	Insertion	Deletion
-1	888659	T	0	0	6	0	0	0	8	0	NA	NA
-1	888659	T	13	0	0	0	14	0	0	0	NA	NA
-1	888659	T	0	0	2	7	0	0	0	13	NA	NA
+chr  loc	ref	A	T	C	G	a	t	c	g	Insertion	Deletion
+1	888659	T	0	0	6	0	0	0	8	0	NA			NA
+1	1421531	C	13	0	0	0	14	0	0	0	NA			NA
+1	2938697	T	0	0	2	7	0	0	0	13	NA			NA
 ```
 
 **sample2.txt** (2:AG|1:AGAG means there are deletions with **AG** occur twice and **AGAG** once. NA means no insertin or deletion in this position)
 ```
-chr	loc	ref	A	T	C	G	a	t	c	g	Insertion	Deletion
+chr  loc	ref	A	T	C	G	a	t	c	g	Insertion	Deletion
 1	888659	T	0	9	0	2	0	0	0	0	2:AG|1:AGAG	1:ATT
-1	888659	T	0	11	0	0	0	0	0	0	NA	NA
-1	888659	T	0	0	0	0	0	0	0	0	NA	NA
-1	888659	T	0	11	0	0	0	9	0	0	NA	2:CACC
+1	1268847	T	0	11	0	0	0	0	0	0	NA			NA
+1	1421531	C	0	0	0	0	0	0	0	0	NA			NA
+1	2938697	T	0	11	0	0	0	9	0	0	NA			2:CACC
 ```
 
 
