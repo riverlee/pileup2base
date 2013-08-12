@@ -8,7 +8,7 @@
 use strict;
 use warnings;
 use File::Basename;
-#Usage: perl pileup2base.pl pileupfile BQcutoff outputfile
+#Usage: perl pileup2base_no_strand.pl pileupfile BQcutoff outputfile
 my $usage = <<USAGE;
 Usage: perl pileup2base.pl pileupfile BQcutoff outputfile
 USAGE
@@ -32,7 +32,7 @@ if($BQcut!~/^\d/){
 #Do the parsing
 open FILE, $input or die "error, can not open $input";
 open WFILE, '>', $output or die "error can not open $output to write";
-print WFILE "chr\t"."loc\t"."ref\t"."A\t"."T\t"."C\t"."G\t"."a\t"."t\t"."c\t"."g\n";
+print WFILE "chr\t"."loc\t"."ref\t"."A\t"."T\t"."C\t"."G"."\n";
 print "[",scalar(localtime),"] Begin parsing...\n";
 while(<FILE>){
     s/\r|\n//g;
@@ -124,7 +124,11 @@ while(<FILE>){
             }
         }#end the condition  $score>=$BQcut
     }#end the loop		
-    print WFILE "$chr\t$loc"."\t".$ref."\t".$A."\t".$T."\t".$C."\t".$G."\t".$a."\t".$t."\t".$c."\t".$g."\n";	    	
+    $A=$A+$a;
+    $T=$T+$t;
+    $C=$C+$c;
+    $G=$G+$g;
+    print WFILE "$chr\t$loc"."\t".$ref."\t".$A."\t".$T."\t".$C."\t".$G."\n";	    	
 }#end the reading of the file
 close FILE;
 close WFILE;
