@@ -72,7 +72,7 @@ foreach my $i (1..$n){
 	
 	my @region=(3*($i-1),3*($i-1)+1,3*($i-1)+2);
 	my ($dp,$bases,$bq) = @dp_bases_bq[@region];
-	my $str = parsePileup($bases,$bq,$BQcut,$offset);
+	my $str = parsePileup($bases,$bq,$BQcut,$offset,$ref);
 	
 	if($str ne "*"){
 		print $fh join "\t",($chr,$loc,$ref,$str);
@@ -88,10 +88,10 @@ while(<FILE>){
 		my $fh = $files{$i};
 		my @region=(3*($i-1),3*($i-1)+1,3*($i-1)+2);
 		my ($dp,$bases,$bq) = @dp_bases_bq[@region];
-		my $str = parsePileup($bases,$bq,$BQcut,$offset);
-		if($str ne "*"){
+		my $str = parsePileup($bases,$bq,$BQcut,$offset,$ref);
+		#if($str ne "*"){
 			print $fh join "\t",($chr,$loc,$ref,$str);
-		}
+		#}
 	}
 }
 
@@ -103,10 +103,12 @@ print "[",scalar(localtime),"] Finished\n";
 
 
 sub parsePileup{
-	my ($bases,$bq,$BQcut,$offset) = @_;
+	my ($bases,$bq,$BQcut,$offset,$ref) = @_;
 	
 	if($bases eq "*"){
-		return "*";
+		my $str="0\t0\t0\t0\t0\t0\t0\t0\tNA\tNA\n";
+		return $str;
+		#return "*";
 	}
 	
 	#do some modificaton on $base to remove additional characters
@@ -226,4 +228,3 @@ sub parsePileup{
 	$str.=$insertion."\t".$deletion."\n";
 	return $str;
 }
-
