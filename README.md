@@ -7,7 +7,7 @@ Script **pileup2baseindel.pl** is a update version of old one **pileup2base.pl**
   
   1. it will parse the insert and deletion too, 
   2. it can parse pileups from multiple sample,
-  3. you don't need to define the outputfile, instead, you will need to provide 'prefix' which will name result from each sample as prefix1.txt, prefix2.txt, etc. Default, prefix is sample`.
+  3. you don't need to define the outputfile, instead, you will need to provide 'prefix' which will name result from each sample as prefix1.txt, prefix2.txt, etc. Default, prefix is `sample`.
   4. Provide option to define the base quality score offset, default is 33 (Sanger standard).
   5. Read parameters from command line with options
 
