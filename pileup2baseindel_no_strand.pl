@@ -162,7 +162,7 @@ sub parsePileup{
 		        if($ref eq "A"){
 		            $reverse_A++;
 		        }elsif($ref eq "T"){
-		            $reverse_T++
+		            $reverse_T++;
 		        }elsif($ref eq "C"){
 		            $reverse_C++;
 		        }elsif($ref eq "G"){
